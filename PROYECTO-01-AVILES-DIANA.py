@@ -137,7 +137,7 @@ while validation_Count == 0 and session_error != 0:
       enter()
       clearConsole()
       session_error -=1
-      print("PASASTE LAS 3 VECES,\nContacta a tu gerente para revisar tus credenciales")
+      print("PASASTE LAS 3 VECES,\nContacta a tu gerente para revisar tus credenciales\n")
       
 
   #else usuario   
@@ -148,7 +148,7 @@ while validation_Count == 0 and session_error != 0:
     enter()
     clearConsole()
     session_error -=1
-    print("PASASTE LAS 3 VECES,\ncontacta a tu gerente para revisar tus credenciales")
+    print("PASASTE LAS 3 VECES,\nContacta a tu gerente para revisar tus credenciales\n")
     
 
     
