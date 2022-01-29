@@ -42,31 +42,36 @@ while validation_Count == 0 and session_error != 0:
           functions.clearConsole()
           print('\nTop 5 más vendidos\n-------------------------------')
           top5 = functions.top5_mostSelledProducts()
-          print('\n\nid - Component\n')
+          print('\nid - Component\n')
           for list in top5:
             print(list)
             print(" ")
           
           print('\nTop 10 más buscado\n-------------------------------')
-          top5 = functions.top5_mostSelledProducts()
-          print('\n\nid - Component\n')
-          for list in top5:
+          top10 = functions.top10_mostWantedProducts()
+          print('\nid - Component\n')
+          for list in top10:
             print(list)
             print(" ")
 
           functions.enter()
+          functions.clearConsole()
+          continue
           validation_Menu += 1
 
         elif choiceMainMenu == 2:
           functions.clearConsole()
           print('Elección 2')
           functions.enter()
+          functions.clearConsole()
+          continue
           validation_Menu += 1
       
         elif choiceMainMenu == 3:
           functions.clearConsole()
           print('Elección 3')
           functions.enter()
+          functions.clearConsole()
           continue
           validation_Menu += 1
         

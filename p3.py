@@ -18,24 +18,9 @@ from lifestore_file import lifestore_products, lifestore_sales, lifestore_search
 top = []
 ji = []
 
-#new_lists = sorted(lifestore_sales, key=itemgetter(2), reverse = True)
-#print(len(new_lists))
-print(type(lifestore_sales))
-
-for w in range(len(lifestore_sales)):
-  if lifestore_sales[w][4] == 0:
-    print(lifestore_sales[w])
-    ji.append(lifestore_sales[w])
-
-
-#print(len(ji))
-#print(ji)
 
 i = 1 #columna que queremos obtener
-columna = [fila[i] for fila in ji]
-
-#for x in columna:
- # print(x)
+columna = [fila[i] for fila in lifestore_searches]
 
 for x in range(len(lifestore_products)+1):
   l = columna.count(x)
@@ -47,16 +32,16 @@ print(a)
 print("'l'")
 print(len(a))
 
-indices = np.sort(a)
+indices = np.sort(a)[::-1]
 print(indices)
 suma = np.sum(indices)
 print(suma)
 
-indices1 = np.argsort(a)
+indices1 = np.argsort(a)[::-1]
 print(indices1)
 print(len(indices1))
 
-columna3 = indices1[0:5]
+columna3 = indices1[0:10]
 
 print("--")
 for i in range(len(lifestore_products)):

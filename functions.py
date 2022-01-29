@@ -2,7 +2,6 @@ import os #Clase para limpiar pantalla
 import time #Clase para pausar tiempo en la consola
 import getpass #Clase para que la contraseña no aparezca en consola
 import numpy as np
-from operator import itemgetter, attrgetter
 from lifestore_file import lifestore_products, lifestore_sales, lifestore_searches
 
 
@@ -116,4 +115,45 @@ def top5_mostSelledProducts():
        order_list5.append(lifestore_products[column][0:2])
   
   return order_list5
+
+
+#Función para obtener el top de 10 productos más buscados
+def top10_mostWantedProducts():
+
+  count_products = []
+  order_list10 = []
+  
+  
+  #Obtener la validation_refaund[1] para guadarla en una lista donde vienen todos los productos que se vendieron
+  i = 1 #columna que queremos obtener
+  column_products = [fila[i] for fila in lifestore_searches]  
+  
+  for products in range(len(lifestore_products)+1):
+    element = column_products.count(products)
+    count_products.append(element)
+   #Comprobamos que imprima los correctos
+   #print(str(products) + "  " + str(count_products[products]))
+  
+  #Convertir en un arreglo para ordenar la lista
+  array_countProducts = np.array(count_products)
+  #print(array_countProducts)
+  
+  #Comprobamos que se ordenen
+  #commanded_frequency = np.sort(array_countProducts)[::-1]
+  #print(commanded_frequency)
+  
+  #Ordenamos por id_producto
+  idProduct_order = np.argsort(array_countProducts)[::-1]
+  #print(idProduct_order)
+
+  #Guardamos en un arreglo los primeros 5
+  array_idProduct = idProduct_order[0:10]
+
+  #Buscamos el id en el arreglo lifestore_products para imprimir el top 5
+  for column in range(len(lifestore_products)):
+   for row in range(len(array_idProduct)):
+     if lifestore_products[column][0] == array_idProduct[row]: 
+       order_list10.append(lifestore_products[column][0:2])
+  
+  return order_list10
   
