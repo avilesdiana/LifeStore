@@ -28,34 +28,34 @@ for w in range(len(lifestore_sales)):
     ji.append(lifestore_sales[w])
 
 
-print(len(ji))
+#print(len(ji))
+#print(ji)
 
 i = 1 #columna que queremos obtener
-columna = [fila[i] for fila in lifestore_sales]
-#print(columna)
-#print(len(columna))
-#columna1 = columna.sort()
+columna = [fila[i] for fila in ji]
+
+#for x in columna:
+ # print(x)
 
 for x in range(len(lifestore_products)+1):
   l = columna.count(x)
   top.append(l)
-  #print(str(x) + "  " + str(top[x]))
+  print(str(x) + "  " + str(top[x]))
 
 a = np.array(top)
-#print(a)
+print(a)
 
 indices = np.sort(a)[::-1]
-#print(indices)
+print(indices)
 
 indices1 = np.argsort(a)[::-1]
-#print(indices1)
-
-#print(indices1[0:5])
+print(indices1)
 
 columna3 = indices1[0:5]
 
+print("--")
 for i in range(len(lifestore_products)):
   for x in range(len(columna3)):
     if lifestore_products[i][0] == columna3[x]: 
-      #print(lifestore_products[i][0:2]) 
-       print(" ")
+      print(lifestore_products[i][0:2]) 
+       

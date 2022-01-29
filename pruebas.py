@@ -21,7 +21,7 @@ top = []
 top1 = []
 arrayto= []
 
-new_lists = sorted(lifestore_sales, key=itemgetter(2), reverse = True)
+new_lists = sorted(lifestore_sales, key=itemgetter(1), reverse = True)
 print(len(new_lists))
 
 
