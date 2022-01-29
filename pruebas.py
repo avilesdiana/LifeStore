@@ -8,7 +8,7 @@ lifestore_products = [id_product, name, price, category, stock]
 
 
 import numpy as np
-
+import collections
 import copy 
 from operator import itemgetter, attrgetter
 
@@ -18,7 +18,8 @@ from lifestore_file import lifestore_products, lifestore_sales, lifestore_search
 #print(lifestore_products[0][0])
 
 top = []
-
+top1 = []
+arrayto= []
 
 new_lists = sorted(lifestore_sales, key=itemgetter(2), reverse = True)
 print(len(new_lists))
@@ -26,19 +27,38 @@ print(len(new_lists))
 
 i = 1 #columna que queremos obtener
 columna = [fila[i] for fila in new_lists]
+print(columna)
+print(len(columna))
 #columna1 = columna.sort()
 
-for x in range(len(lifestore_products)):
+for x in range(len(lifestore_products)+1):
   l = columna.count(x)
   top.append(l)
   print(str(x) + "  " + str(top[x]))
 
-print(top)
+for k in range(len(lifestore_products)+1):
+  top1.append(k)
 
-top.sort(reverse=True)  # Ordenarla de forma inversa
-top5 = top[:5]  # Y capturar los 10 primeros elementos
-print(top)
-print(top5)
+print(top1)
+print(type(top1))
+
+
+array3 = np.array(top1)
+array4 = np.array(top)
+print(array3)
+print(array4)
+
+
+arrayto = np.append(array3,array4,axis=1)
+
+print(arrayto)
+""""
+new_list2 = sorted(top, reverse = True)
+print(new_list2)
+print(type(new_list2))
+"""
+#lista_ordenada = sorted(l, key=itemgetter(2))
+
 
 """
 new_lists = sorted(lifestore_sales, key=itemgetter(2), reverse = True)
@@ -149,3 +169,13 @@ top5 = top[:5]  # Y capturar los 10 primeros elementos
 print(top)
 print(top5)
 '''
+
+
+"""
+
+for x in range(len(lifestore_products)):
+  l = columna.count(x)
+  top.append(l)
+  print(str(x) + "  " + str(top[x]))
+
+"""
