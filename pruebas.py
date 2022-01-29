@@ -15,6 +15,16 @@ from operator import itemgetter, attrgetter
 from lifestore_file import lifestore_products, lifestore_sales, lifestore_searches
 #print(lifestore_searches[0])
 
+#print(lifestore_products[0][0])
+
+for i in range(len(lifestore_products)):
+  if lifestore_products[i][0] == 2:
+    print(lifestore_products[i][0:2]) 
+  
+
+
+
+
 """
 new_lists = sorted(lifestore_sales, key=itemgetter(2), reverse = True)
 
@@ -23,7 +33,7 @@ print(len(new_lists))
 for lists in new_lists[0:50]:
   print(lists)
 
-
+for x in range(len(lifestore_products[i])):
 
 
 more_sales = int(lifestore_sales)
@@ -48,6 +58,7 @@ for l in l1[[1]:
   
 """
 
+'''
 new_lists = sorted(lifestore_sales, key=itemgetter(2), reverse = True)
 
 print(len(new_lists))
@@ -66,3 +77,5 @@ print(len(lifestore_products))
 print(set(columna))
 
 #
+'''
+
