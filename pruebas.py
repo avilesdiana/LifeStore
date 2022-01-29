@@ -17,9 +17,19 @@ from lifestore_file import lifestore_products, lifestore_sales, lifestore_search
 
 #print(lifestore_products[0][0])
 
+new_lists = sorted(lifestore_sales, key=itemgetter(2), reverse = True)
+
+i = 1 #columna que queremos obtener
+columna = [fila[i] for fila in new_lists[0:50]]
+columna1 = set(columna)
+columna2 = list(columna1)
+
+print(type(columna2))
+
 for i in range(len(lifestore_products)):
-  if lifestore_products[i][0] == 2:
-    print(lifestore_products[i][0:2]) 
+  for x in range(len(columna1)):
+    if lifestore_products[i][0] == columna2[x]: 
+      print(lifestore_products[i][0:2]) 
   
 
 
@@ -35,6 +45,10 @@ for lists in new_lists[0:50]:
 
 for x in range(len(lifestore_products[i])):
 
+for i in range(len(lifestore_products)):
+  if lifestore_products[i][0] == 2:
+    print(lifestore_products[i][0:2]) 
+  
 
 more_sales = int(lifestore_sales)
 top_sales = more_sales.sort()
