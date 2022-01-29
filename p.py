@@ -1,6 +1,5 @@
 import numpy as np
-import collections
-import copy 
+
 from operator import itemgetter, attrgetter
 
 from lifestore_file import lifestore_products, lifestore_sales, lifestore_searches
