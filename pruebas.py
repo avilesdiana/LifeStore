@@ -6,7 +6,9 @@ lifestore_sales = [id_sale, id_product, score (from 1 to 5), date, refund (1 for
 lifestore_products = [id_product, name, price, category, stock]
 """
 
+
 import numpy as np
+
 import copy 
 from operator import itemgetter, attrgetter
 
@@ -50,16 +52,17 @@ new_lists = sorted(lifestore_sales, key=itemgetter(2), reverse = True)
 
 print(len(new_lists))
 
+for i in range(0,50):
+  print(new_lists[i])
+
 nl= []
 
 i = 1 #columna que queremos obtener
 columna = [fila[i] for fila in new_lists[0:50]]
 print(columna)
 print(len(columna))
+print(len(lifestore_products))
 
-productos = np.array(columna)
-result = np.where(productos == 5)
+print(set(columna))
 
-print(result)
-
-
+#
