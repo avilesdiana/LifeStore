@@ -17,23 +17,28 @@ from lifestore_file import lifestore_products, lifestore_sales, lifestore_search
 
 #print(lifestore_products[0][0])
 
+top = []
+
+
 new_lists = sorted(lifestore_sales, key=itemgetter(2), reverse = True)
+print(len(new_lists))
+
 
 i = 1 #columna que queremos obtener
-columna = [fila[i] for fila in new_lists[0:50]]
-columna1 = set(columna)
-columna2 = list(columna1)
+columna = [fila[i] for fila in new_lists]
+#columna1 = columna.sort()
 
-print(type(columna2))
+for x in range(len(lifestore_products)):
+  l = columna.count(x)
+  top.append(l)
+  print(str(x) + "  " + str(top[x]))
 
-for i in range(len(lifestore_products)):
-  for x in range(len(columna1)):
-    if lifestore_products[i][0] == columna2[x]: 
-      print(lifestore_products[i][0:2]) 
-  
+print(top)
 
-
-
+top.sort(reverse=True)  # Ordenarla de forma inversa
+top5 = top[:5]  # Y capturar los 10 primeros elementos
+print(top)
+print(top5)
 
 """
 new_lists = sorted(lifestore_sales, key=itemgetter(2), reverse = True)
@@ -48,6 +53,23 @@ for x in range(len(lifestore_products[i])):
 for i in range(len(lifestore_products)):
   if lifestore_products[i][0] == 2:
     print(lifestore_products[i][0:2]) 
+  
+
+---
+i = 1 #columna que queremos obtener
+columna = [fila[i] for fila in new_lists]
+print(columna)
+print(len(columna))
+
+columna1 = set(columna)
+columna2 = list(columna1)
+columna3 = columna2[:5]
+
+print(columna3)
+---
+
+
+
   
 
 more_sales = int(lifestore_sales)
@@ -93,3 +115,37 @@ print(set(columna))
 #
 '''
 
+
+
+''''
+for i in range(len(lifestore_products)):
+  for x in range(len(columna3)):
+    if lifestore_products[i][0] == columna3[x]: 
+      print(lifestore_products[i][0:2]) 
+  
+
+lista = [1,2,3,4,5,6,7,8,9,10,11,12,13,14,15]
+top_diez = []
+
+for x in range(10):  # Número de veces que ejecutamos este bucle
+    maximo = max(lista)  # Buscamos el máximo valor
+    top_diez.append(maximo)  # Lo añadimos a una nueva lista
+    top = lista.remove(maximo)  # Lo eliminamos de la lista antigua, para que el próximo "máximo valor" no incluya este valor
+
+top_diez.sort()  # Ordenamos la lista
+print(lista)
+print(top_diez)
+
+for h in columna:
+  print(h)
+#print(columna)
+#print(len(columna))
+
+
+
+
+top.sort(reverse=True)  # Ordenarla de forma inversa
+top5 = top[:5]  # Y capturar los 10 primeros elementos
+print(top)
+print(top5)
+'''
