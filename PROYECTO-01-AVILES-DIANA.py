@@ -40,8 +40,20 @@ while validation_Count == 0 and session_error != 0:
       
         if choiceMainMenu == 1:
           functions.clearConsole()
-          print('Elección 1')
+          print('\nTop 5 más vendidos\n-------------------------------')
+          top5 = functions.top5_mostSelledProducts()
+          print('\n\nid - Component\n')
+          for list in top5:
+            print(list)
+            print(" ")
           
+          print('\nTop 10 más buscado\n-------------------------------')
+          top5 = functions.top5_mostSelledProducts()
+          print('\n\nid - Component\n')
+          for list in top5:
+            print(list)
+            print(" ")
+
           functions.enter()
           validation_Menu += 1
 

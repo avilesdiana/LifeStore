@@ -44,11 +44,15 @@ for x in range(len(lifestore_products)+1):
 
 a = np.array(top)
 print(a)
+print("'l'")
+print(len(a))
 
-indices = np.sort(a)[::-1]
+indices = np.sort(a)
 print(indices)
+suma = np.sum(indices)
+print(suma)
 
-indices1 = np.argsort(a)[::-1]
+indices1 = np.argsort(a)
 print(indices1)
 print(len(indices1))
 
