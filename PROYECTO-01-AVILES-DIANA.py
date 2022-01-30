@@ -48,9 +48,16 @@ while validation_Count == 0 and session_error != 0:
             print(" ")
           
           print('\nTop 10 más buscado\n-------------------------------')
-          top10 = functions.top10_mostWantedProducts()
+          top10_more = functions.top10_mostWantedProducts()
           print('\nid - Component\n')
-          for list in top10:
+          for list in top10_more:
+            print(list)
+            print(" ")
+
+          print('\nTop 10 menos buscado\n-------------------------------')
+          top10_less = functions.top10_leastWantedProducts()
+          print('\nid - Component\n')
+          for list in top10_less:
             print(list)
             print(" ")
 
