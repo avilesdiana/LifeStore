@@ -60,6 +60,17 @@ while validation_Count == 0 and session_error != 0:
           for list in top10_less:
             print(list)
             print(" ")
+          
+          print('\nCategorías menos vendidas\n-------------------------------')
+          print('\nCategorías existentes: \n')
+          categories,count_products= functions.existingCategories()
+          print(categories)
+          print('\n_____________')
+          print('\nVendidos - Categoria\n')
+          for list in count_products:
+            print(list)
+            print(" ")
+
 
           functions.enter()
           functions.clearConsole()

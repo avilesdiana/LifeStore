@@ -172,10 +172,11 @@ def top10_leastWantedProducts():
     element = column_products.count(products)
     count_products.append(element)
    #Comprobamos que imprima los correctos
-   #print(str(products) + "  " + str(count_products[products]))
+    #print(str(products) + "  " + str(count_products[products]))
   
   #Convertir en un arreglo para ordenar la lista
   array_countProducts = np.array(count_products)
+  
   #print(array_countProducts)
   
   #Comprobamos que se ordenen
@@ -196,4 +197,67 @@ def top10_leastWantedProducts():
        order_list10.append(lifestore_products[column][0:2])
   
   return order_list10
+
+#Función para unir listas
+def merge(list1, list2): 
+    merged_list = [(list1[i], list2[i]) for i in range(0, len(list1))] 
+    return merged_list 
+
+
+
+#Función para obtener el top de 5 productos más vendidos
+def existingCategories():
+  categories = []
+  product_categories = []
+  count_products = []
+  validation_refund = []
+  idProducto_SalesXProduct = []
+  frecuency_categorie = []
+  totalSalesByCategory = []
+
+  #Guardamos en un arreglo las categorias existentes
+  for product in range(len(lifestore_products)):
+   if lifestore_products[product][3] not in categories:
+     categories.append(lifestore_products[product][3])
   
+  #Guardamos en una lista cada categoria de los productos en la lista de lifestore_productos
+  for column in range(len(lifestore_products)):
+   for row in range(len(categories)):
+    if lifestore_products[column][3] == categories[row]: 
+      product_categories.append(lifestore_products[column][3])
+  
+  #Creamos una lista que imprima del 1 hasta la longitud de número de productos que hay : 96
+  for x in range(len(lifestore_products)+1):
+   if x != 0:
+     count_products.append(x)
+  
+  #Unión de listas de Id_producto y las categorías
+  idProducto_category = merge(count_products, product_categories)
+
+  #Agregamos en una nueva lista los productos de ventas que no tuvieron reembolso == 0 
+  for sale0 in range(len(lifestore_sales)):
+    if lifestore_sales[sale0][4] == 0:
+       validation_refund.append(lifestore_sales[sale0])
+  
+  #Creamos una lista para unir los id productos de lifestore_sales con la nueva lista que contiene los id_producto y su categoria
+  for x in range(len(validation_refund)):
+    for j in range(len(idProducto_category)):
+      if lifestore_sales[x][1] == idProducto_category[j][0]:
+        idProducto_SalesXProduct.append(idProducto_category[j][1])
+
+  #contamos las frecuencias de venta por cada categoria
+  for product in idProducto_SalesXProduct:
+    frecuency_categorie.append(idProducto_SalesXProduct.count(product))
+  
+  #Creamos una nueva lista para unir las frecuencias por categoría y su categoría
+  salesByCategory = merge(frecuency_categorie,idProducto_SalesXProduct)
+
+  #Ordenamos el número de ventas por categoria de menor a mayor
+  leastSoldCategories = sorted(salesByCategory, key=lambda categorie : categorie[0])
+  
+  for element in leastSoldCategories:
+    if element not in totalSalesByCategory:
+      totalSalesByCategory.append(element)
+  
+  return categories, totalSalesByCategory
+
