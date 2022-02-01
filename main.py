@@ -49,14 +49,14 @@ while validation_Count == 0 and session_error != 0:
           
           print('\nTop 10 más buscado\n-------------------------------')
           top10_more = functions.top10_mostWantedProducts()
-          print('\nid - Component\n')
+          print('\nid - Componente\n')
           for list in top10_more:
             print(list)
             print(" ")
 
           print('\nTop 10 menos buscado\n-------------------------------')
           top10_less = functions.top10_leastWantedProducts()
-          print('\nid - Component\n')
+          print('\nid - Componente\n')
           for list in top10_less:
             print(list)
             print(" ")
@@ -79,7 +79,33 @@ while validation_Count == 0 and session_error != 0:
 
         elif choiceMainMenu == 2:
           functions.clearConsole()
-          print('Elección 2')
+          print('\Productos con mejores reseñas (5-3) \n-------------------------------')
+          #top5 = functions.top5_mostSelledProducts()
+          print('\nid - Componente\n')
+          #for list in top5:
+            #print(list)
+           # print(" ")
+          
+          print('\Productos con peores reseñas (1-3)\n-------------------------------')
+          #top5 = functions.top5_mostSelledProducts()
+          print('\nid - Componente\n')
+          #for list in top5:
+            #print(list)
+           # print(" ")
+          
+          print('\Listado detallado de las mejores reseñas\n-------------------------------')
+          #top5 = functions.top5_mostSelledProducts()
+          print('\nid_producto - Score\n')
+          #for list in top5:
+            #print(list)
+           # print(" ")
+
+          print('\Listado detallado de las mejores reseñas\n-------------------------------')
+          #top5 = functions.top5_mostSelledProducts()
+          print('\nid_producto - Score\n')
+          #for list in top5:
+            #print(list)
+           # print(" ") 
           functions.enter()
           functions.clearConsole()
           continue
