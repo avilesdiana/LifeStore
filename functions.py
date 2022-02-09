@@ -203,8 +203,6 @@ def merge(list1, list2):
     merged_list = [(list1[i], list2[i]) for i in range(0, len(list1))] 
     return merged_list 
 
-
-
 #Función para obtener el top de 5 productos más vendidos
 def existingCategories():
   categories = []
@@ -261,3 +259,72 @@ def existingCategories():
   
   return categories, totalSalesByCategory
 
+
+"""
+This is the LifeStore_SalesList data:
+
+lifestore_searches = [id_search, id product]
+lifestore_sales = [id_sale, id_product, score (from 1 to 5), date, refund (1 for true or 0 to false)]
+lifestore_products = [id_product, name, price, category, stock]
+"""
+
+#Función para obtener el top de reviews
+def top_Reviews(option):
+
+  validation_refund = []
+  resultantList = []
+  product_top5 = []
+
+
+  #Extraer la columna 0 y 1  de lifestore_products que corresponde al id_product y name para guardarlos en una lista y comparar después de filtrar 
+
+  i = 0 #columna que queremos obtener
+  column_idProduct = [fila[i] for fila in lifestore_products]
+  
+  i = 1 #columna que queremos obtener
+  column_nameProduct = [fila[i] for fila in lifestore_products]
+  
+  productos_id_name = merge(column_idProduct ,column_nameProduct)
+  
+  #Agregamos en una nueva lista solamento los productos que tienen reseña, quitamos de la lista todos los productos vendidos que tengan scrore < 1
+
+  for sale0 in range(len(lifestore_sales)):
+   if lifestore_sales[sale0][2] >= 1:
+    validation_refund.append(lifestore_sales[sale0])
+
+  
+  #Extraer la columna 1 y 2  de lifestore_sales que corresponde al id_product y score para guardarlos en una lista y comparar después de filtrar 
+
+  i = 1 #columna que queremos obtener
+  column_idProductSales = [fila[i] for fila in lifestore_sales]
+  
+  i = 2 #columna que queremos obtener
+  column_scoreProduct = [fila[i] for fila in lifestore_sales]
+  
+  productos_id_score = merge(column_idProductSales, column_scoreProduct)
+
+  #Ordenamos el Score
+  ordenados = sorted(productos_id_score, key=lambda score : score[1], reverse = option)
+
+  
+ #Limpiamos los id_products y score repetidos.
+  for element in ordenados:
+    if element not in resultantList:
+        resultantList.append(element)
+
+
+  #Extraemos la columna con el Id_product de la nueva lista
+  i = 0 #columna que queremos obtener
+  column_idProductNew = [fila[i] for fila in resultantList] 
+  #Guardar solamente los primeros 5
+  top5 = column_idProductNew [0:5]
+  
+
+  #Buscamos el id producto de la nueva lista, con la creada al principio con el filtrado de Lifestore_sales
+  for column in range(len(productos_id_name)):
+    for row in range(len(top5)):
+      if productos_id_name[column][0] == top5[row]: 
+         product_top5.append(productos_id_name[column][0:2])
+
+  return product_top5, resultantList
+  

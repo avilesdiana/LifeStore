@@ -72,6 +72,9 @@ for x in sales_id_name :
   print(x)
 
 
+
+
+
 ordenados = sorted(sales_id_name, key=lambda score : score[1], reverse = True)
 
 print("ordenados")

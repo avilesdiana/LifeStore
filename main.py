@@ -40,28 +40,28 @@ while validation_Count == 0 and session_error != 0:
       
         if choiceMainMenu == 1:
           functions.clearConsole()
-          print('\nTop 5 más vendidos\n-------------------------------')
+          print('\n-------------------------------\nTop 5 más vendidos\n-------------------------------')
           top5 = functions.top5_mostSelledProducts()
           print('\nid - Component\n')
           for list in top5:
             print(list)
             print(" ")
           
-          print('\nTop 10 más buscado\n-------------------------------')
+          print('\n-------------------------------\nTop 10 más buscado\n-------------------------------')
           top10_more = functions.top10_mostWantedProducts()
           print('\nid - Componente\n')
           for list in top10_more:
             print(list)
             print(" ")
 
-          print('\nTop 10 menos buscado\n-------------------------------')
+          print('\n-------------------------------\nTop 10 menos buscado\n-------------------------------')
           top10_less = functions.top10_leastWantedProducts()
           print('\nid - Componente\n')
           for list in top10_less:
             print(list)
             print(" ")
           
-          print('\nCategorías menos vendidas\n-------------------------------')
+          print('\n-------------------------------\nCategorías menos vendidas\n-------------------------------')
           print('\nCategorías existentes: \n')
           categories,count_products= functions.existingCategories()
           print(categories)
@@ -79,33 +79,33 @@ while validation_Count == 0 and session_error != 0:
 
         elif choiceMainMenu == 2:
           functions.clearConsole()
-          print('\Productos con mejores reseñas (5-3) \n-------------------------------')
-          #top5 = functions.top5_mostSelledProducts()
+          print('\n-------------------------------\nProductos con mejores reseñas (5-3) \n-------------------------------')
+          option = True
+          top_reviews, listT = functions.top_Reviews(option)
           print('\nid - Componente\n')
-          #for list in top5:
-            #print(list)
-           # print(" ")
+          for list in top_reviews:
+            print(list)
+            print(" ")
           
-          print('\Productos con peores reseñas (1-3)\n-------------------------------')
-          #top5 = functions.top5_mostSelledProducts()
+          print('\n-------------------------------\nProductos con peores reseñas (1-3)\n-------------------------------')
+          option = False
+          top_Badreviews, listF= functions.top_Reviews(option)
           print('\nid - Componente\n')
-          #for list in top5:
-            #print(list)
-           # print(" ")
+          for list in top_Badreviews:
+            print(list)
+            print(" ")
           
-          print('\Listado detallado de las mejores reseñas\n-------------------------------')
-          #top5 = functions.top5_mostSelledProducts()
+          print('\n-------------------------------\nListado detallado de las mejores reseñas\n-------------------------------')
           print('\nid_producto - Score\n')
-          #for list in top5:
-            #print(list)
-           # print(" ")
+          for list in listT:
+            print(list)
+            print(" ")
 
-          print('\Listado detallado de las mejores reseñas\n-------------------------------')
-          #top5 = functions.top5_mostSelledProducts()
+          print('\n-------------------------------\nListado detallado de las peores reseñas\n-------------------------------')
           print('\nid_producto - Score\n')
-          #for list in top5:
-            #print(list)
-           # print(" ") 
+          for list in listF:
+            print(list)
+            print(" ") 
           functions.enter()
           functions.clearConsole()
           continue
