@@ -114,12 +114,17 @@ while validation_Count == 0 and session_error != 0:
         elif choiceMainMenu == 3:
           functions.clearConsole()
           sales_total, products_sale, freq_month = functions.sales()
-          print('\n-------------------------------\nVentas Totales\n-------------------------------')
-          print(str(len(lifestore_sales)) + "Productos")
-          print('\n-------------------------------\nVentas Totales sin reembolsos\n-------------------------------')
-          print(str(sales_total) + "Productos")
-          print('\n-------------------------------\nTotal vendido en el 2020 sin reembolso\n-------------------------------')
-          print("$" + str(products_sale) + " pesos")
+          print('\n-------------------------------\nNúmero de Ventas Totales\n-------------------------------')
+          print(str(len(lifestore_sales)) + " Productos")
+          print('\n-------------------------------\nNúmero de Ventas Totales sin reembolsos\n-------------------------------')
+          print(str(sales_total) + " Productos")
+          print('\n-------------------------------\nTotal de ingresos en el 2020 sin reembolso\n-------------------------------')
+          print("$" + str(products_sale) + " Pesos")
+          print('\n-------------------------------\nTop 3 de meses con más ventas en el año\n-------------------------------')
+          print('\nMes - Número de ventas\n')
+          for list in freq_month:
+            print(list)
+            print(" ") 
           functions.enter()
           functions.clearConsole()
           continue
@@ -160,4 +165,3 @@ while validation_Count == 0 and session_error != 0:
     
 
     
-

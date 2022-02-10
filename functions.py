@@ -1,8 +1,9 @@
+
+from datetime import date, time, datetime #para usar las fechas
 import os #Clase para limpiar pantalla
 import time #Clase para pausar tiempo en la consola
 import getpass #Clase para que la contraseña no aparezca en consola
 import numpy as np
-from datetime import date, time, datetime #para usar las fechas
 from lifestore_file import lifestore_products, lifestore_sales, lifestore_searches
 
 
@@ -29,7 +30,7 @@ def main_menu():
   print('\nSeleccione una opción\n')
   print('\n1.Productos más vendidos y productos rezagados')
   print('\n2.Productos por reseña en el servicio')
-  print('\n3.Total de ingresos y ventas promedio mensuales,\ntotal anual y meses con meses con más ventas en el año')
+  print('\n3.Total de ingresos anual,número de ventas\ny top 3 de meses con más ventas en el año')
   print('\n4.Cerrar sesión\n')
   choiceOfMainMenu = input('\nNúmero de elección: ')
   return choiceOfMainMenu #Regresa la elección para su validación en el programa principal
