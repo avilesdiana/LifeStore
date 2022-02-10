@@ -2,7 +2,9 @@ import os #Clase para limpiar pantalla
 import time #Clase para pausar tiempo en la consola
 import getpass #Clase para que la contraseña no aparezca en consola
 import numpy as np
+from datetime import date, time, datetime #para usar las fechas
 from lifestore_file import lifestore_products, lifestore_sales, lifestore_searches
+
 
 
 #Función para limpiar pantalla
@@ -321,3 +323,82 @@ def top_Reviews(option):
 
   return product_top5, resultantList
   
+
+#Función para obtener el ventas totales, ventas totales sin reembolsos, total vendido, y el top 3 de meses con más ventas
+def sales():
+
+  validation_refund = []
+  sales_total = []
+  freq_month = []
+  months_sales = []
+  months_top3 = []
+  column_dateSale = []
+  column_month = []
+
+  #Agregamos en una nueva lista los productos de ventas que no tuvieron reembolso == 0 
+  for sale0 in range(len(lifestore_sales)):
+    if lifestore_sales[sale0][4] == 0:
+       validation_refund.append(lifestore_sales[sale0])
+  
+  #Ventas totales registradas
+  sales_Total_refund = len(validation_refund)
+
+
+  #Convertimos la fecha a tipo datatime para extraerla
+  for dateSale in range(len(validation_refund)):
+    column_dateSale.append(datetime.strptime(validation_refund[dateSale][3], '%d/%m/%Y'))
+    column_month.append(column_dateSale[dateSale].month)
+
+  #Extraemos la el id producto de la nueva lista limpia
+  i = 1 #columna que queremos obtener
+  column_idProductSales = [fila[i] for fila in validation_refund]
+
+  #Id_product Unión con el Mes de Venta
+  idProduct_date = merge(column_idProductSales,column_month)
+
+  #Extraemos la el id producto y el precio  de lifestore_products 
+  i = 0 #columna que queremos obtener
+  column_idProductP = [fila[i] for fila in lifestore_products]
+
+  i = 2 #columna que queremos obtener
+  column_priceP = [fila[i] for fila in lifestore_products]
+
+  #Id_product Unión con el Precio del producto
+  idProduct_Price = merge(column_idProductP,column_priceP)
+
+  #Buscamos id_Product de sales con el Id_product de productos para hacer la suma de precios y calcular la venta
+  for column in range(len(idProduct_Price)):
+    for row in range(len(idProduct_date)):
+      if idProduct_Price[column][0] == idProduct_date[row][0]: 
+         sales_total.append(idProduct_Price[column][1])
+
+  #Imprimir la suma total vendida con la unión 
+  salesTotal = sum(sales_total)
+  
+  #Ordenar por Mes empezando por Enero
+  ordenados = sorted(column_month, key=lambda mes : mes)
+  
+  #Eliminar los meses repetidos
+  for product in range(len(column_month)):
+   if column_month[product] not in months_sales:
+     months_sales.append(column_month[product])
+
+
+  #Ocurrencia de los meses donde más se compraron productos
+  for products in ordenados:
+    element = ordenados.count(products)
+    freq_month.append(element)
+  
+  #Mes Unión con frecuencia de venta
+  month_freq = merge(ordenados,freq_month)
+
+  #Ordenar por ocurrencia - (mes, ocurrencia)
+  ordenados_freq = sorted( month_freq, key=lambda freq : freq[1], reverse = True)
+  
+  #Eliminar las ocurrencias con su mes repetidas
+  for product in range(len(ordenados_freq)):
+   if ordenados_freq[product] not in months_top3:
+     months_top3.append(ordenados_freq[product])
+
+  
+  return sales_Total_refund, salesTotal,  months_top3[0:3]

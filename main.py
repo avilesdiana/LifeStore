@@ -113,7 +113,13 @@ while validation_Count == 0 and session_error != 0:
       
         elif choiceMainMenu == 3:
           functions.clearConsole()
-          print('Elección 3')
+          sales_total, products_sale, freq_month = functions.sales()
+          print('\n-------------------------------\nVentas Totales\n-------------------------------')
+          print(str(len(lifestore_sales)) + "Productos")
+          print('\n-------------------------------\nVentas Totales sin reembolsos\n-------------------------------')
+          print(str(sales_total) + "Productos")
+          print('\n-------------------------------\nTotal vendido en el 2020 sin reembolso\n-------------------------------')
+          print("$" + str(products_sale) + " pesos")
           functions.enter()
           functions.clearConsole()
           continue
@@ -154,3 +160,4 @@ while validation_Count == 0 and session_error != 0:
     
 
     
+
