@@ -1,3 +1,4 @@
+#Importa las funciones que desarrolle en mi archivo functions.py
 import functions 
 
 
@@ -150,7 +151,7 @@ while validation_Count == 0 and session_error != 0:
       functions.enter()
       functions.clearConsole()
       session_error -=1
-      print("PASASTE LAS 3 VECES,\nContacta a tu gerente para revisar tus credenciales\n")
+      print("\n-------------------------------\nPASASTE LAS 3 VECES,\nContacta a tu gerente para revisar tus credenciales\n-------------------------------\n")
       
 
   #else usuario   
@@ -161,7 +162,7 @@ while validation_Count == 0 and session_error != 0:
     functions.enter()
     functions.clearConsole()
     session_error -=1
-    print("PASASTE LAS 3 VECES,\nContacta a tu gerente para revisar tus credenciales\n")
+    print("\n-------------------------------\nPASASTE LAS 3 VECES,\nContacta a tu gerente para revisar tus credenciales\n-------------------------------\n")
     
 
     

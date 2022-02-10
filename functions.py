@@ -17,58 +17,70 @@ def clearConsole():
 
 #Función para mostrar mensaje: Presionar Enter y contniuar
 def enter():
-  input('\n[Presiona Enter para continuar] ')
+  input('\n[Presiona ENTER para continuar] ')
 
 #Función para mostrar mensje Bienvenida
 def welcome_System():
-  print('\nBienvenido a LIFESTORE')
+  print('\n-------------------------------\nBienvenido a LIFESTORE\n-------------------------------')
+  print('Análisis de la rotación de productos por \nIng.Diana Aviles\n-------------------------------\n')
   print('\nIngresa tus credenciales de administrador para acceder a los reportes\n')
 
 #Función para mostrar el menú principal 
 def main_menu():
-  print('\nMENU LIFESTORE\n-------------------------------')
+  print('\n-------------------------------\nMENU LIFESTORE\n-------------------------------')
   print('\nSeleccione una opción\n')
-  print('\n1.Productos más vendidos y productos rezagados')
-  print('\n2.Productos por reseña en el servicio')
-  print('\n3.Total de ingresos anual,número de ventas\ny top 3 de meses con más ventas en el año')
+  print('\n1. Productos más vendidos y productos rezagados')
+  print('\n2. Productos por reseña en el servicio')
+  print('\n3. Total de ingresos anual,número de ventas\n  y top 3 de meses con más ventas en el año')
   print('\n4.Cerrar sesión\n')
+  print('-------------------------------\n')
   choiceOfMainMenu = input('\nNúmero de elección: ')
   return choiceOfMainMenu #Regresa la elección para su validación en el programa principal
 
 #Función para mostrar el cerrado de sesión
 def log_Out():
   clearConsole()
-  print('Cerrando sesión de LIFESTORE .')
+  print('\n-------------------------------------\nCerrando sesión de LIFESTORE ....')
+  print('-------------------------------------\n')
   time.sleep(1)
   clearConsole()
-  print('Cerrando sesión de LIFESTORE ..')
+  print('\n-----------------------------------\nCerrando sesión de LIFESTORE ...')
+  print('-----------------------------------\n')
   time.sleep(1)
   clearConsole()
-  print('Cerrando sesión de LIFESTORE ...')
+  print('\n---------------------------------\nCerrando sesión de LIFESTORE ..')
+  print('---------------------------------\n')
   time.sleep(1)
   clearConsole()
-  print('Cerrando sesión de LIFESTORE ....')
+  print('\n-------------------------------\nCerrando sesión de LIFESTORE .')
+  print('-------------------------------\n')
   time.sleep(1)
   clearConsole()
 
 #Función para mostrar que ingreso un valor erróneo 
 def wrong_Value(optionText):
+  print('\n-------------------------------')
   print('\n    Opción INCORRECTA')
   print('\nIngrese un valor de '+ optionText+' válido')
+  print('\n-------------------------------\n')
 
 #Función para mostrar el inicio de sesión
 def log_In():
   clearConsole()
-  print('Iniciando sesión de LIFESTORE .')
+  print('\n-------------------------------\nIniciando sesión de LIFESTORE .')
+  print('-------------------------------\n')
   time.sleep(1)
   clearConsole()
-  print('Iniciando sesión de LIFESTORE ..')
+  print('\n---------------------------------\nIniciando sesión de LIFESTORE ..')
+  print('---------------------------------\n')
   time.sleep(1)
   clearConsole()
-  print('Iniciando sesión de LIFESTORE ...')
+  print('\n-----------------------------------\nIniciando sesión de LIFESTORE ...')
+  print('-----------------------------------\n')
   time.sleep(1)
   clearConsole()
-  print('Iniciando sesión de LIFESTORE ....')
+  print('\n-------------------------------------\nIniciando sesión de LIFESTORE ....')
+  print('-------------------------------------\n')
   time.sleep(1)
   clearConsole()
 
