@@ -1,7 +1,6 @@
 #Importa las funciones que desarrolle en mi archivo functions.py
 import functions 
 
-
 #Librería para mandar a llamar la información de Lifestore
 from lifestore_file import lifestore_products, lifestore_sales, lifestore_searches
 #print(lifestore_searches[0])
