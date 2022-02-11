@@ -7,7 +7,7 @@
 **Tutor: Jaime Saúl Alonso Sánchez**
 
 
-![](https://github.com/ArquiWebIberoP2021/ArquiWeb_Diana/blob/main/IMG/Clase.jpg)
+![](https://github.com/avilesdiana/LifeStore/blob/main/img/Lifestore.png)
 
 
 > Plantilla hecha en:
