@@ -7,8 +7,12 @@
 **Tutor: Jaime Saúl Alonso Sánchez**
 
 
-LIFESTORE
+![](https://github.com/ArquiWebIberoP2021/ArquiWeb_Diana/blob/main/IMG/Clase.jpg)
 
 
 > Plantilla hecha en:
 https://pandao.github.io/editor.md/en.html
+
+
+
+

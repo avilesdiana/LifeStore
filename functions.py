@@ -202,8 +202,8 @@ def top10_leastWantedProducts():
   idProduct_order = np.argsort(array_countProducts)
   #print(idProduct_order)
 
-  #Guardamos en un arreglo los primeros 5
-  array_idProduct = idProduct_order[0:10]
+  #Guardamos en un arreglo los primeros 10
+  array_idProduct = idProduct_order[0:11]
 
   #Buscamos el id en el arreglo lifestore_products para imprimir el top 5
   for column in range(len(lifestore_products)):
